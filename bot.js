@@ -63,7 +63,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "source") {
         return sendMsg("- SOURCE\n https://log833.github.io/cd-bot-source/bot.js");
     }
-    if (text === prefix + "llama") {
+    if (text === prefix + "parrot") {
         return sendMsg("Parrot");
     }
 });
