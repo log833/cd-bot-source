@@ -1,9 +1,9 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "Initial Release";
+const version = "V1.0.2";
 let isPremium = false;
 
-const help = `- Commands\n` +
+const help = `- ^^COMMANDS^^ \n` +
 `${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source`;
 
 const botinfo = `Version ${version}.`;
@@ -56,15 +56,21 @@ socket.on("talk", (message) => {
     }
 
         if (text === prefix + "camel") {
-        return sendMsg("Camel");
+        return sendMsg("Yay Camel");
     }
     if (text === prefix + "llama") {
-        return sendMsg("Llama");
+        return sendMsg("Yay Llama");
     }
     if (text === prefix + "source") {
-        return sendMsg("- SOURCE\n https://log833.github.io/cd-bot-source/bot.js");
+        return sendMsg("- ^^SOURCE:^^ \n https://log833.github.io/cd-bot-source/bot.js");
     }
     if (text === prefix + "parrot") {
-        return sendMsg("Parrot");
+        return sendMsg("Yay Parrot");
+    }
+    if (text === prefix + "cow") {
+        return sendMsg("Yay Cow");
+    }
+    if (text === prefix + "changelog") {
+        return sendMsg("^^V1.0.2^^ \n Added ,hat \n Added ,cow");
     }
 });
