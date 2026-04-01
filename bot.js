@@ -4,7 +4,7 @@ const version = "Initial Release";
 let isPremium = false;
 
 const help = `- Commands\n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}color {args}, ${prefix}name {args}, ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source`;
+`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source`;
 
 const botinfo = `Version ${version}.`;
 
@@ -27,6 +27,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
     if (text === prefix + "triggered") return socket.emit("command", { list: ["triggered"] });
     if (text === prefix + "fact") return socket.emit("command", { list: ["fact"] });
+    if (text.startsWith(prefix + "hat")) return socket.emit("command", { list: ["hat", text.substring(prefix.length + 4)] });
     if (text.startsWith(prefix + "color")) return socket.emit("command", { list: ["color", text.substring(prefix.length + 6)] });
     if (text.startsWith(prefix + "name")) return socket.emit("command", { list: ["name", text.substring(prefix.length + 5)] });
     if (text.startsWith(prefix + "resetname")) return socket.emit("command", { list: ["name", botname] });
