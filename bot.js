@@ -4,7 +4,7 @@ const version = "Initial Release";
 let isPremium = false;
 
 const help = `- Commands\n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}color {args}, ${prefix}name {args}, ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot {args}, ${prefix}source`;
+`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}color {args}, ${prefix}name {args}, ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source`;
 
 const botinfo = `Version ${version}.`;
 
@@ -63,10 +63,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "source") {
         return sendMsg("- SOURCE\n https://log833.github.io/cd-bot-source/bot.js");
     }
-    if (text.startsWith(prefix + "insult")) {
-        const name = text.substring(prefix.length + 8).trim();
-        if (!name) return sendMsg("Usage: " + prefix + "parrot {args}");
-        sendMsg(`Hey, ${name}!`);
-        return sendMsg("You're a fucking parrot!");
+    if (text === prefix + "llama") {
+        return sendMsg("Parrot");
     }
 });
