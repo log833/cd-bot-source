@@ -1,12 +1,10 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.2";
+const version = "V1.0.3";
 let isPremium = false;
 
 const help = `- ^^COMMANDS:^^ \n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source ${prefix}changelog`;
-
-const botinfo = `Version ${version}.`;
+`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {args:0} and {args:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}asshole, ${prefix}owo, ${prefix}france`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -27,6 +25,9 @@ socket.on("talk", (message) => {
     if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
     if (text === prefix + "triggered") return socket.emit("command", { list: ["triggered"] });
     if (text === prefix + "fact") return socket.emit("command", { list: ["fact"] });
+    if (text === prefix + "asshole") return socket.emit("command", { list: ["asshole"] });
+    if (text === prefix + "owo") return socket.emit("command", { list: ["owo"] });
+    if (text === prefix + "france") return socket.emit("command", { list: ["france"] });
     if (text.startsWith(prefix + "hat")) return socket.emit("command", { list: ["hat", text.substring(prefix.length + 4)] });
     if (text.startsWith(prefix + "color")) return socket.emit("command", { list: ["color", text.substring(prefix.length + 6)] });
     if (text.startsWith(prefix + "name")) return socket.emit("command", { list: ["name", text.substring(prefix.length + 5)] });
@@ -71,6 +72,6 @@ socket.on("talk", (message) => {
         return sendMsg("Yay Cow");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("^^V1.0.2^^ \n Added ,hat \n Added ,cow");
+        return sendMsg("- ^^V1.0.3^^ \n Added ,hat \n Added ,cow \n Added ,asshole \n Added ,owo \n Added ,france");
     }
 });
