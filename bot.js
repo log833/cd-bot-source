@@ -55,23 +55,19 @@ socket.on("talk", (message) => {
     }
 
         if (text === prefix + "camel") {
-        return sendMsg("Yay");
-        return sendMsg("Camel");
+        return sendMsg("- ^^U GOT THE CAMEL^^");
     }
     if (text === prefix + "llama") {
-        return sendMsg("Yay");
-        return sendMsg("Llama");
+        return sendMsg("- ^^U GOT THE LLAMA^^");
     }
     if (text === prefix + "source") {
         return sendMsg("- ^^SOURCE:^^ \n https://log833.github.io/cd-bot-source/bot.js");
     }
     if (text === prefix + "parrot") {
-        return sendMsg("Yay");
-        return sendMsg("Parrot");
+        return sendMsg("- ^^U GOT THE PARROT^^");
     }
     if (text === prefix + "cow") {
-        return sendMsg("Yay");
-        return sendMsg("Cow");
+        return sendMsg("- ^^U GOT THE COW^^");
     }
     if (text === prefix + "changelog") {
         return sendMsg("- ^^V1.0.3^^ \n Added ,hat \n Added ,cow \n Added ,france");
