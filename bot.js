@@ -21,7 +21,7 @@ socket.on("talk", (message) => {
     const text = message.text;
 
     if (text === prefix + "help") return sendMsg(help);
-    if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 4));
+    if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
     if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
     if (text === prefix + "triggered") return socket.emit("command", { list: ["triggered"] });
