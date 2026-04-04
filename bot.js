@@ -1,10 +1,10 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.3";
+const version = "V1.0.4";
 let isPremium = false;
 
 const help = `- ^^COMMANDS:^^ \n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france`;
+`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -22,6 +22,7 @@ socket.on("talk", (message) => {
 
     if (text === prefix + "help") return sendMsg(help);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 4));
+    if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
     if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
     if (text === prefix + "triggered") return socket.emit("command", { list: ["triggered"] });
     if (text === prefix + "fact") return socket.emit("command", { list: ["fact"] });
@@ -29,6 +30,7 @@ socket.on("talk", (message) => {
     if (text.startsWith(prefix + "hat")) return socket.emit("command", { list: ["hat", text.substring(prefix.length + 4)] });
     if (text.startsWith(prefix + "color")) return socket.emit("command", { list: ["color", text.substring(prefix.length + 6)] });
     if (text.startsWith(prefix + "name")) return socket.emit("command", { list: ["name", text.substring(prefix.length + 5)] });
+    if (text.startsWith(prefix + "asshole")) return socket.emit("command", { list: ["asshole", text.substring(prefix.length + 7)] });
     if (text.startsWith(prefix + "resetname")) return socket.emit("command", { list: ["name", botname] });
     if (text.startsWith(prefix + "resetcolor")) return socket.emit("command", { list: ["color", "red"] });
     if (text.startsWith(prefix + "resethat")) return socket.emit("command", { list: ["hat", "sprout"] });
@@ -70,6 +72,6 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^U GOT THE COW^^");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("- ^^V1.0.3^^ \n Added ,hat \n Added ,cow \n Added ,france");
+        return sendMsg("- ^^V1.0.4^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole");
     }
 });
