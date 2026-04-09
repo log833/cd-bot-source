@@ -1,10 +1,10 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.4";
+const version = "V1.0.5";
 let isPremium = false;
 
 const help = `- ^^COMMANDS:^^ \n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole`;
+`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole, ${prefix}lumi`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -57,21 +57,24 @@ socket.on("talk", (message) => {
     }
 
         if (text === prefix + "camel") {
-        return sendMsg("- ^^U GOT THE CAMEL^^");
+        return sendMsg("- ^^**U GOT THE CAMEL**^^");
     }
     if (text === prefix + "llama") {
-        return sendMsg("- ^^U GOT THE LLAMA^^");
+        return sendMsg("- ^^**U GOT THE LLAMA**^^");
     }
     if (text === prefix + "source") {
-        return sendMsg("- ^^SOURCE:^^ \n https://log833.github.io/cd-bot-source/bot.js");
+        return sendMsg("- ^^**SOURCE:**^^ \n https://log833.github.io/cd-bot-source/bot.js");
     }
     if (text === prefix + "parrot") {
-        return sendMsg("- ^^U GOT THE PARROT^^");
+        return sendMsg("- ^^**U GOT THE PARROT**^^");
     }
     if (text === prefix + "cow") {
-        return sendMsg("- ^^U GOT THE COW^^");
+        return sendMsg("- ^^**U GOT THE COW**^^");
+    }
+    if (text === prefix + "lumi") {
+        return sendMsg("- ^^**https://log833.github.io/cd-bot-source/lumi.png**^^");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("- ^^V1.0.4^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole");
+        return sendMsg("- ^^**V1.0.5**^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole \n Added ,lumi");
     }
 });
