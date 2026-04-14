@@ -15,7 +15,7 @@ function sendMsg(msg) {
 setTimeout(() => { socket.emit("command", { list: ["name", botname] }); }, 1000);
 setTimeout(() => { socket.emit("command", { list: ["color", "red"] }); }, 2100);
 setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 2400);
-setTimeout(() => { sendMsg(`Clanker Dask Here`); }, 3000);
+setTimeout(() => { sendMsg(`Clanker Dask Here. Type ,help To See Commands. Created By DPH.`); }, 3000);
 
 socket.on("talk", (message) => {
     const text = message.text;
@@ -37,7 +37,7 @@ socket.on("talk", (message) => {
 
     if (text.startsWith(prefix + "roast")) {
         const user = text.substring(prefix.length + 6);
-        if (!user) return sendMsg("Usage: " + prefix + "roast {args}");
+        if (!user) return sendMsg("Name Plz!");
         const roasts = [
             `${user}, I'd agree with you, but then we'd both be wrong.`,
             `${user}, if laughter is the best medicine, your face must cure the world.`,
@@ -51,7 +51,7 @@ socket.on("talk", (message) => {
 
     if (text.startsWith(prefix + "ship")) {
         const users = text.substring(prefix.length + 5).split(" and ");
-        if (users.length !== 2) return sendMsg("Usage: " + prefix + "ship {arg:0} and {arg:1}");
+        if (users.length !== 2) return sendMsg("Names Plz");
         const percent = Math.floor(Math.random() * 101);
         return sendMsg(`${users[0]} ❤️ ${users[1]} = ${percent}% Love!`);
     }
