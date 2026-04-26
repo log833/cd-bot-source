@@ -1,10 +1,10 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.5";
+const version = "V1.0.6";
 let isPremium = false;
 
 const help = `- ^^COMMANDS:^^ \n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole, ${prefix}lumi`;
+`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole, ${prefix}lumi, ${prefix}gokid {args}`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -51,7 +51,7 @@ socket.on("talk", (message) => {
 
     if (text.startsWith(prefix + "ship")) {
         const users = text.substring(prefix.length + 5).split(" and ");
-        if (users.length !== 2) return sendMsg("Names Plz");
+        if (users.length !== 2) return sendMsg("Names Plz!");
         const percent = Math.floor(Math.random() * 101);
         return sendMsg(`${users[0]} ❤️ ${users[1]} = ${percent}% Love!`);
     }
@@ -75,6 +75,15 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^**https://log833.github.io/cd-bot-source/lumi.png**^^");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("- ^^**V1.0.5**^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole \n Added ,lumi");
+        return sendMsg("- ^^**V1.0.6**^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole \n Added ,lumi \n Added ,gokid");
+    }
+    if (text.startsWith(prefix + "gokid")) {
+    const userxd = text.substring(prefix.length + 6);
+    const gokids = [
+            `${userxd}, your a gokid!`,
+            `${userxd}, your a fucking gokid!`
+        ];
+        const gokid = gokids[Math.floor(Math.random() * gokids.length)];
+        return sendMsg(gokid);
     }
 });
