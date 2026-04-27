@@ -1,26 +1,30 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.6";
+const version = "V1.0.7";
 let isPremium = false;
 
 const help = `- ^^COMMANDS:^^ \n` +
-`${prefix}help, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args} ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole, ${prefix}lumi, ${prefix}gokid {args}`;
+`${prefix}help, ${prefix}help2, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args}, ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat, ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole, ${prefix}lumi, ${prefix}gokid {args}`;
+
+const help2 = `- ^^COMMANDS:^^ \n` +
+`${prefix}pp`;
 
 function sendMsg(msg) {
     setTimeout(() => {
         socket.emit("talk", { text: msg });
-    }, 1000);
+    }, 200);
 }
 
 setTimeout(() => { socket.emit("command", { list: ["name", botname] }); }, 1000);
-setTimeout(() => { socket.emit("command", { list: ["color", "red"] }); }, 2100);
-setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 2400);
-setTimeout(() => { sendMsg(`Clanker Dask Here. Type ,help To See Commands. Created By DPH.`); }, 3000);
+setTimeout(() => { socket.emit("command", { list: ["color", "red"] }); }, 1000);
+setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 1000);
+setTimeout(() => { sendMsg(`Clanker Dask Here. Type ,help To See Commands. Created By DPH.`); }, 1000);
 
 socket.on("talk", (message) => {
     const text = message.text;
 
     if (text === prefix + "help") return sendMsg(help);
+    if (text === prefix + "help2") return sendMsg(help2);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
     if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
@@ -75,7 +79,7 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^**https://log833.github.io/cd-bot-source/lumi.png**^^");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("- ^^**V1.0.6**^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole \n Added ,lumi \n Added ,gokid");
+        return sendMsg("- ^^**V1.0.7**^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole \n Added ,lumi \n Added ,gokid \n Added ,help2 \n Added ,pp");
     }
     if (text.startsWith(prefix + "gokid")) {
     const userxd = text.substring(prefix.length + 6);
@@ -85,5 +89,18 @@ socket.on("talk", (message) => {
         ];
         const gokid = gokids[Math.floor(Math.random() * gokids.length)];
         return sendMsg(gokid);
+    }
+    if (text.startsWith(prefix + "pp")) {
+    const name = text.substring(prefix.length + 6);
+    const pps = [
+            `This is ${name}'s PP: 8=Đ`,
+            `This is ${name}'s PP: 8==Đ`,
+            `This is ${name}'s PP: 8===Đ`,
+            `This is ${name}'s PP: 8====Đ`,
+            `This is ${name}'s PP: 8=====Đ`,
+            `This is ${name}'s PP: 8======Đ`
+        ];
+        const pp = pps[Math.floor(Math.random() * pps.length)];
+        return sendMsg(pp);
     }
 });
