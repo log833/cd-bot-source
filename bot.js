@@ -91,7 +91,7 @@ socket.on("talk", (message) => {
         return sendMsg(gokid);
     }
     if (text.startsWith(prefix + "pp")) {
-    const name = text.substring(prefix.length + 6);
+    const name = text.substring(prefix.length + 2);
     const pps = [
             `This is ${name}'s PP: 8=Đ`,
             `This is ${name}'s PP: 8==Đ`,
