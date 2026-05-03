@@ -3,10 +3,10 @@ const botname = "Clanker Dask (" + prefix + "help)";
 const version = "V1.0.7";
 let isPremium = false;
 
-const help = `- ^^COMMANDS:^^ \n` +
-`${prefix}help, ${prefix}help2, ${prefix}echo {args}, ${prefix}joke, ${prefix}triggered, ${prefix}fact, ${prefix}hat {args}, ${prefix}color {args}, ${prefix}name {args}, ${prefix}resethat, ${prefix}resetcolor, ${prefix}resetname, ${prefix}ship {arg:0} and {arg:1}, ${prefix}roast {args}, ${prefix}camel, ${prefix}llama, ${prefix}parrot, ${prefix}source, ${prefix}changelog, ${prefix}france, ${prefix}asshole, ${prefix}lumi, ${prefix}gokid {args}`;
+const help = `- %%^^COMMANDS:^^%% \n` +
+`${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}camel\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
-const help2 = `- ^^COMMANDS:^^ \n` +
+const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}pp`;
 
 function sendMsg(msg) {
@@ -17,8 +17,8 @@ function sendMsg(msg) {
 
 setTimeout(() => { socket.emit("command", { list: ["name", botname] }); }, 1000);
 setTimeout(() => { socket.emit("command", { list: ["color", "red"] }); }, 1000);
-setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 1000);
-setTimeout(() => { sendMsg(`Clanker Dask Here. Type ,help To See Commands. Created By DPH.`); }, 1000);
+setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 1050);
+setTimeout(() => { sendMsg(`Clanker Dask Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1000);
 
 socket.on("talk", (message) => {
     const text = message.text;
@@ -41,7 +41,7 @@ socket.on("talk", (message) => {
 
     if (text.startsWith(prefix + "roast")) {
         const user = text.substring(prefix.length + 6);
-        if (!user) return sendMsg("Name Plz!");
+        if (!user) return sendMsg("Name Plz!\\n Example: ,roast user");
         const roasts = [
             `${user}, I'd agree with you, but then we'd both be wrong.`,
             `${user}, if laughter is the best medicine, your face must cure the world.`,
@@ -55,7 +55,7 @@ socket.on("talk", (message) => {
 
     if (text.startsWith(prefix + "ship")) {
         const users = text.substring(prefix.length + 5).split(" and ");
-        if (users.length !== 2) return sendMsg("Names Plz!");
+        if (users.length !== 2) return sendMsg("Names Plz!\\n Example: ,ship he and she");
         const percent = Math.floor(Math.random() * 101);
         return sendMsg(`${users[0]} ❤️ ${users[1]} = ${percent}% Love!`);
     }
@@ -79,7 +79,7 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^**https://log833.github.io/cd-bot-source/lumi.png**^^");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("- ^^**V1.0.7**^^ \n Added ,hat \n Added ,cow \n Added ,france \n Added ,asshole \n Added ,lumi \n Added ,gokid \n Added ,help2 \n Added ,pp");
+        return sendMsg("- ^^**V1.0.7**^^\\n Added ,hat\\n Added ,cow\\n Added ,france\\n Added ,asshole\\n Added ,lumi\\n Added ,gokid\\n Added ,help2\\n Added ,pp");
     }
     if (text.startsWith(prefix + "gokid")) {
     const userxd = text.substring(prefix.length + 6);
