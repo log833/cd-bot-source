@@ -1,13 +1,13 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.7";
+const version = "V1.0.8";
 let isPremium = false;
 
 const help = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}camel\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}pp`;
+`${prefix}pp\\n ${prefix}aplle`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -79,7 +79,7 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^**https://log833.github.io/cd-bot-source/lumi.png**^^");
     }
     if (text === prefix + "changelog") {
-        return sendMsg("- ^^**V1.0.7**^^\\n Added ,hat\\n Added ,cow\\n Added ,france\\n Added ,asshole\\n Added ,lumi\\n Added ,gokid\\n Added ,help2\\n Added ,pp");
+        return sendMsg("- ^^**V1.0.8**^^\\n Added ,hat\\n Added ,cow\\n Added ,france\\n Added ,asshole\\n Added ,lumi\\n Added ,gokid\\n Added ,help2\\n Added ,pp\\n Added ,aplle");
     }
     if (text.startsWith(prefix + "gokid")) {
     const userxd = text.substring(prefix.length + 6);
@@ -102,5 +102,8 @@ socket.on("talk", (message) => {
         ];
         const pp = pps[Math.floor(Math.random() * pps.length)];
         return sendMsg(pp);
+    }
+    if (text === prefix + "aplle") {
+        return sendMsg("- ^^**U GOT THE APLLE**^^");
     }
 });
