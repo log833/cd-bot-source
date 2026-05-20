@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.8";
+const version = "V1.0.9";
 let isPremium = false;
 
 const help = `- %%^^COMMANDS:^^%% \n` +
@@ -8,6 +8,8 @@ const help = `- %%^^COMMANDS:^^%% \n` +
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}pp\\n ${prefix}aplle`;
+
+const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi`
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -25,6 +27,7 @@ socket.on("talk", (message) => {
 
     if (text === prefix + "help") return sendMsg(help);
     if (text === prefix + "help2") return sendMsg(help2);
+    if (text === prefix + "changelog") return sendMsg(changelog);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
     if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
@@ -76,10 +79,7 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^**U GOT THE COW**^^");
     }
     if (text === prefix + "lumi") {
-        return sendMsg("- ^^**https://log833.github.io/cd-bot-source/lumi.png**^^");
-    }
-    if (text === prefix + "changelog") {
-        return sendMsg("- ^^**V1.0.8**^^\\n Added ,hat\\n Added ,cow\\n Added ,france\\n Added ,asshole\\n Added ,lumi\\n Added ,gokid\\n Added ,help2\\n Added ,pp\\n Added ,aplle");
+        cmd(`image https://files.catbox.moe/mc9mdo.png`);
     }
     if (text.startsWith(prefix + "gokid")) {
     const userxd = text.substring(prefix.length + 6);
