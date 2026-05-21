@@ -59,6 +59,6 @@ socket.on("talk", (message) => {
         cmd(`image https://files.catbox.moe/4i1qll.jpg`);
     }
     if (text === prefix + "dihsk") {
-        return sendMsg("^^**THIS GIF IS A JOKE**^^\\n It Won't Let Me Upload So Here's It\\n https://files.catbox.moe/92amgu.gif");
+        return sendMsg("^^**THIS GIF IS A JOKE**^^\\n It Won't Let Me Upload So Here's It\\n https://log833.github.io/cd-bot-source/dihsk.gif");
     }
 });
