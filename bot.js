@@ -1,7 +1,12 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.9";
+const version = "V1.0.10";
 let isPremium = false;
+socket.emit("login", {
+        name: botname,
+        room: login_room.value,
+    });
+setup();
 
 const help = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}camel\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
@@ -9,7 +14,7 @@ const help = `- %%^^COMMANDS:^^%% \n` +
 const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}pp\\n ${prefix}aplle`;
 
-const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi`
+const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -20,7 +25,16 @@ function sendMsg(msg) {
 setTimeout(() => { socket.emit("command", { list: ["name", botname] }); }, 1000);
 setTimeout(() => { socket.emit("command", { list: ["color", "red"] }); }, 1000);
 setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 1050);
-setTimeout(() => { sendMsg(`Clanker Dask Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1000);
+setTimeout(() => { sendMsg(`Clanker Dask Is Fucking Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1000);
+setInterval(() => {
+        socket.emit("typing", 1);
+    }, 60000);
+setInterval(() => {
+        socket.emit("typing", 0);
+    }, 60002);
+setInterval(() => {
+        sendMsg(`Clanker Dask Is Still Here. Type ${prefix}help To See Commands. Fuck Yeah.`)
+    }, 60003);
 
 socket.on("talk", (message) => {
     const text = message.text;
@@ -105,5 +119,14 @@ socket.on("talk", (message) => {
     }
     if (text === prefix + "aplle") {
         return sendMsg("- ^^**U GOT THE APLLE**^^");
+    }
+    if (text.startsWith(prefix + "stfu")) {
+    const userxd2 = text.substring(prefix.length + 4);
+    const stfus = [
+            `${userxd2} shut the fuck up, NOW!`,
+            `${userxd2} shut the fuck up, because I'm tired of your bullshit`
+        ];
+        const stfu = stfus[Math.floor(Math.random() * stfus.length)];
+        return sendMsg(stfu);
     }
 });
