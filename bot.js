@@ -12,9 +12,9 @@ const help = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}camel\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}pp\\n ${prefix}aplle`;
+`${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu`;
 
-const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi`;
+const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -84,7 +84,7 @@ socket.on("talk", (message) => {
         return sendMsg("- ^^**U GOT THE LLAMA**^^");
     }
     if (text === prefix + "source") {
-        return sendMsg("- ^^**SOURCE:**^^ \n https://log833.github.io/cd-bot-source/bot.js");
+        return sendMsg("- ^^**SOURCE CODE:**^^\\n https://log833.github.io/cd-bot-source/bot.js");
     }
     if (text === prefix + "parrot") {
         return sendMsg("- ^^**U GOT THE PARROT**^^");
