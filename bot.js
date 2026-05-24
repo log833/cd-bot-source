@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.11";
+const version = "V1.0.12";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -9,12 +9,12 @@ socket.emit("login", {
 setup();
 
 const help = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}camel\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
+`${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk`;
 
-const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk`;
+const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk\\n Improved The Code\\n Removed ${prefix}camel`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -22,10 +22,10 @@ function sendMsg(msg) {
     }, 200);
 }
 
-setTimeout(() => { socket.emit("command", { list: ["name", botname] }); }, 1000);
-setTimeout(() => { socket.emit("command", { list: ["color", "red"] }); }, 1000);
-setTimeout(() => { socket.emit("command", { list: ["hat", "sprout"] }); }, 1050);
-setTimeout(() => { sendMsg(`Clanker Dask Is Fucking Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1000);
+setTimeout(() => { cmd(`name Clanker Dask (,help)`); }, 1000);
+setTimeout(() => { cmd(`color red`); }, 1000);
+setTimeout(() => { cmd(`hat sprout`); }, 1000);
+setTimeout(() => { sendMsg(`Clanker Dask Is Fucking Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1100);
 setInterval(() => {
         socket.emit("typing", 1);
     }, 60000);
@@ -44,18 +44,18 @@ socket.on("talk", (message) => {
     if (text === prefix + "changelog") return sendMsg(changelog);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
-    if (text === prefix + "joke") return socket.emit("command", { list: ["joke"] });
-    if (text === prefix + "triggered") return socket.emit("command", { list: ["triggered"] });
-    if (text === prefix + "fact") return socket.emit("command", { list: ["fact"] });
-    if (text === prefix + "france") return socket.emit("command", { list: ["france"] });
-    if (text.startsWith(prefix + "hat")) return socket.emit("command", { list: ["hat", text.substring(prefix.length + 4)] });
-    if (text.startsWith(prefix + "color")) return socket.emit("command", { list: ["color", text.substring(prefix.length + 6)] });
-    if (text.startsWith(prefix + "name")) return socket.emit("command", { list: ["name", text.substring(prefix.length + 5)] });
-    if (text.startsWith(prefix + "asshole")) return socket.emit("command", { list: ["asshole", text.substring(prefix.length + 7)] });
-    if (text.startsWith(prefix + "resetname")) return socket.emit("command", { list: ["name", botname] });
-    if (text.startsWith(prefix + "resetcolor")) return socket.emit("command", { list: ["color", "red"] });
-    if (text.startsWith(prefix + "resethat")) return socket.emit("command", { list: ["hat", "sprout"] });
-
+    if (text === prefix + "joke") cmd(`joke`);
+    if (text === prefix + "triggered") cmd(`triggered`);
+    if (text === prefix + "fact") cmd(`fact`);
+    if (text === prefix + "france") cmd(`france`);
+    if (text.startsWith(prefix + "hat")) cmd(`hat`);
+    if (text.startsWith(prefix + "color")) cmd(`color`);
+    if (text.startsWith(prefix + "name")) cmd(`name`);
+    if (text.startsWith(prefix + "asshole")) cmd(`asshole`);
+    if (text.startsWith(prefix + "resetname")) cmd(`name Clanker Dask (,help)`);
+    if (text.startsWith(prefix + "resetcolor")) cmd(`color red`);
+    if (text.startsWith(prefix + "resethat")) cmd(`hat sprout`);
+        
     if (text.startsWith(prefix + "roast")) {
         const user = text.substring(prefix.length + 6);
         if (!user) return sendMsg("Name Plz!\\n Example: ,roast user");
@@ -75,11 +75,7 @@ socket.on("talk", (message) => {
         if (users.length !== 2) return sendMsg("Names Plz!\\n Example: ,ship he and she");
         const percent = Math.floor(Math.random() * 101);
         return sendMsg(`${users[0]} ❤️ ${users[1]} = ${percent}% Love!`);
-    }
-
-        if (text === prefix + "camel") {
-        return sendMsg("- ^^**U GOT THE CAMEL**^^");
-    }
+    } 
     if (text === prefix + "llama") {
         return sendMsg("- ^^**U GOT THE LLAMA**^^");
     }
