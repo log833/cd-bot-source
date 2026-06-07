@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.0.12";
+const version = "V1.0.13";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -9,12 +9,15 @@ socket.emit("login", {
 setup();
 
 const help = `- %%^^COMMANDS:^^%% \n` +
+`${prefix}help1\\n ${prefix}help2`;
+
+const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help\\n ${prefix}help2\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk`;
 
-const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk\\n Improved The Code\\n Removed ${prefix}camel`;
+const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk\\n Improved The Code\\n Removed ${prefix}camel\\n Improved More Shit`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -39,22 +42,23 @@ setInterval(() => {
 socket.on("talk", (message) => {
     const text = message.text;
 
-    if (text === prefix + "help") return sendMsg(help);
+    if (text === prefix + "help") return sendMsg(help);       
+    if (text === prefix + "help1") return sendMsg(help1);
     if (text === prefix + "help2") return sendMsg(help2);
     if (text === prefix + "changelog") return sendMsg(changelog);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
-    if (text === prefix + "joke") cmd(`joke`);
-    if (text === prefix + "triggered") cmd(`triggered`);
-    if (text === prefix + "fact") cmd(`fact`);
-    if (text === prefix + "france") cmd(`france`);
-    if (text.startsWith(prefix + "hat")) cmd(`hat`);
-    if (text.startsWith(prefix + "color")) cmd(`color`);
-    if (text.startsWith(prefix + "name")) cmd(`name`);
-    if (text.startsWith(prefix + "asshole")) cmd(`asshole`);
-    if (text.startsWith(prefix + "resetname")) cmd(`name Clanker Dask (,help)`);
-    if (text.startsWith(prefix + "resetcolor")) cmd(`color red`);
-    if (text.startsWith(prefix + "resethat")) cmd(`hat sprout`);
+    if (text === prefix + "joke") return cmd(`joke`);
+    if (text === prefix + "triggered") return cmd(`triggered`);
+    if (text === prefix + "fact") return cmd(`fact`);
+    if (text === prefix + "france") return cmd(`france`);
+    if (text.startsWith(prefix + "hat")) return cmd(`hat`, ${text.substring(prefix.length + 5)});
+    if (text.startsWith(prefix + "color")) return cmd(`color`, ${text.substring(prefix.length + 6)});
+    if (text.startsWith(prefix + "name")) return cmd(`name`, ${text.substring(prefix.length + 5)});
+    if (text.startsWith(prefix + "asshole")) return cmd(`asshole`, ${text.substring(prefix.length + 7)});
+    if (text.startsWith(prefix + "resetname")) return cmd(`name Clanker Dask (,help)`);
+    if (text.startsWith(prefix + "resetcolor")) return cmd(`color red`);
+    if (text.startsWith(prefix + "resethat")) return cmd(`hat sprout`);
         
     if (text.startsWith(prefix + "roast")) {
         const user = text.substring(prefix.length + 6);
