@@ -15,9 +15,9 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help1\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk`;
+`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce`;
 
-const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk\\n Improved The Code\\n Removed ${prefix}camel\\n Improved More Shit\\n Added ${prefix}slash`;
+const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk\\n Improved The Code\\n Removed ${prefix}camel\\n Improved More Shit\\n Added ${prefix}dvdbounce`;
 
 function sendMsg(msg) {
     setTimeout(() => {
@@ -28,9 +28,7 @@ function sendMsg(msg) {
 setTimeout(() => { cmd(`name Clanker Dask (,help)`); }, 1000);
 setTimeout(() => { cmd(`color red`); }, 1000);
 setTimeout(() => { cmd(`hat sprout`); }, 1000);
-setTimeout(() => { cmd(`speed 150`); }, 1000);
-setTimeout(() => { cmd(`pitch 50`); }, 1000);
-setTimeout(() => { sendMsg(`Clanker Dask Is Fucking Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1150);
+setTimeout(() => { sendMsg(`Clanker Dask Is Fucking Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1100);
 setInterval(() => {
         socket.emit("typing", 1);
     }, 60000);
@@ -50,7 +48,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "changelog") return sendMsg(changelog);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
-    if (text.startsWith(prefix + "slash")) return cmd(text.substring(prefix.length + 8));
+    if (text === prefix + "dvdbounce") return cmd(`dvdbounce`);
     if (text === prefix + "joke") return cmd(`joke`);
     if (text === prefix + "triggered") return cmd(`triggered`);
     if (text === prefix + "fact") return cmd(`fact`);
