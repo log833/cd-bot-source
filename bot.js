@@ -55,7 +55,7 @@ socket.on("talk", (message) => {
     if (text.startsWith(prefix + "hat")) return cmd(`hat ${text.substring(prefix.length + 5)}`);
     if (text.startsWith(prefix + "color")) return cmd(`color ${text.substring(prefix.length + 6)}`);
     if (text.startsWith(prefix + "name")) return cmd(`name ${text.substring(prefix.length + 5)}`);
-    if (text.startsWith(prefix + "asshole")) return cmd(`asshole`, ${text.substring(prefix.length + 7)}`);
+    if (text.startsWith(prefix + "asshole")) return cmd(`asshole ${text.substring(prefix.length + 7)}`);
     if (text.startsWith(prefix + "resetname")) return cmd(`name Clanker Dask (,help)`);
     if (text.startsWith(prefix + "resetcolor")) return cmd(`color red`);
     if (text.startsWith(prefix + "resethat")) return cmd(`hat sprout`);
