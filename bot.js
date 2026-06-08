@@ -17,8 +17,7 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce`;
 
-const changelog = `- ^^**${version}**^^\\n Added ${prefix}hat\\n Added ${prefix}cow\\n Added ${prefix}france\\n Added ${prefix}asshole\\n Added ${prefix}lumi\\n Added ${prefix}gokid\\n Added ${prefix}help2\\n Added ${prefix}pp\\n Added ${prefix}aplle\\n Edited ${prefix}lumi\\n Added ${prefix}stfu\\n Added ${prefix}fuk\\n Improved The Code\\n Removed ${prefix}camel\\n Improved More Shit\\n Added ${prefix}dvdbounce`;
-
+const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
 function sendMsg(msg) {
     setTimeout(() => {
         socket.emit("talk", { text: msg });
@@ -53,7 +52,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "triggered") return cmd(`triggered`);
     if (text === prefix + "fact") return cmd(`fact`);
     if (text === prefix + "france") return cmd(`france`);
-    if (text.startsWith(prefix + "hat")) return cmd(`hat ${text.substring(prefix.length + 5)}`);
+    if (text.startsWith(prefix + "hat")) return cmd(`hat ${text.substring(prefix.length + 4)}`);
     if (text.startsWith(prefix + "color")) return cmd(`color ${text.substring(prefix.length + 6)}`);
     if (text.startsWith(prefix + "name")) return cmd(`name ${text.substring(prefix.length + 5)}`);
     if (text.startsWith(prefix + "asshole")) return cmd(`asshole ${text.substring(prefix.length + 7)}`);
