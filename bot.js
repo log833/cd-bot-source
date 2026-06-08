@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.1.1";
+const version = "V1.1.2";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -15,7 +15,7 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help1\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce`;
+`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip`;
 
 const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
 
@@ -140,4 +140,12 @@ socket.on("talk", (message) => {
         sendMsg("IT'S A FUCKING [[fVk]]");
     }, 1000);
  }
+ if (text.startsWith(prefix + "coinflip")) {
+        const coinflips = [
+            `- 🪙Landed On, ^^HEADS^^`,
+            `- 🪙Landed On, ^^TAILS^^`
+        ];
+        const coinflip = coinflips[Math.floor(Math.random() * coinflips.length)];
+        return sendMsg(coinflip);
+ }        
 });
