@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.1.0";
+const version = "V1.1.1";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -18,6 +18,7 @@ const help2 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce`;
 
 const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
+
 function sendMsg(msg) {
     setTimeout(() => {
         socket.emit("talk", { text: msg });
@@ -45,6 +46,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "help1") return sendMsg(help1);
     if (text === prefix + "help2") return sendMsg(help2);
     if (text === prefix + "changelog") return sendMsg(changelog);
+    if (text === prefix + "version") return sendMsg(version);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
     if (text === prefix + "dvdbounce") return cmd(`dvdbounce`);
