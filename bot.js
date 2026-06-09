@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.1.2";
+const version = "V1.1.3";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -25,7 +25,7 @@ function sendMsg(msg) {
     }, 200);
 }
 
-setTimeout(() => { cmd(`name Clanker Dask (,help)`); }, 1000);
+setTimeout(() => { cmd(`name ${botname}`); }, 1000);
 setTimeout(() => { cmd(`color red`); }, 1000);
 setTimeout(() => { cmd(`hat sprout`); }, 1000);
 setTimeout(() => { sendMsg(`Clanker Dask Is Fucking Here. Type ${prefix}help To See Commands. Created By DPH.`); }, 1100);
@@ -58,9 +58,14 @@ socket.on("talk", (message) => {
     if (text.startsWith(prefix + "color")) return cmd(`color ${text.substring(prefix.length + 6)}`);
     if (text.startsWith(prefix + "name")) return cmd(`name ${text.substring(prefix.length + 5)}`);
     if (text.startsWith(prefix + "asshole")) return cmd(`asshole ${text.substring(prefix.length + 7)}`);
-    if (text.startsWith(prefix + "resetname")) return cmd(`name Clanker Dask (,help)`);
+    if (text.startsWith(prefix + "resetname")) return cmd(`name ${botname}`);
     if (text.startsWith(prefix + "resetcolor")) return cmd(`color red`);
     if (text.startsWith(prefix + "resethat")) return cmd(`hat sprout`);
+    if (text === prefix + "restore") {
+        cmd(`color red`);
+        cmd(`hat sprout`);
+        cmd(`name ${botname}`)
+    }   
         
     if (text.startsWith(prefix + "roast")) {
         const user = text.substring(prefix.length + 6);
