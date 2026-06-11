@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.1.4";
+const version = "V1.1.5";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -50,6 +50,7 @@ socket.on("talk", (message) => {
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
     if (text === prefix + "dvdbounce") return cmd(`dvdbounce`);
+    if (text === prefix + "backflip") return cmd(`backflip`);
     if (text === prefix + "joke") return cmd(`joke`);
     if (text === prefix + "triggered") return cmd(`triggered`);
     if (text === prefix + "fact") return cmd(`fact`);
