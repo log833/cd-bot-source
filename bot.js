@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.1.5";
+const version = "V1.1.6";
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -15,7 +15,7 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help1\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat`;
+`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy`;
 
 const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
 
@@ -171,4 +171,10 @@ socket.on("talk", (message) => {
 
     return sendMsg(Array(count).fill(msg).join(" "));
  }
+ if (text === prefix + "apllefy") {
+        cmd(`color red`);
+        cmd(`hat sprout`);
+        cmd(`name Aplle`);
+        sendMsg(`**^^MY APLLES!^^**`)
+ }   
 });
