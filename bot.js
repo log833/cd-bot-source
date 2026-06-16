@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.1.8";
+const version = "V1.2.0";
 const startTime = Date.now();
 let isPremium = false;
 socket.emit("login", {
@@ -209,5 +209,9 @@ socket.on("talk", (message) => {
     return sendMsg(
         `Clanker Dask Uptime:\n${hours}h ${minutes % 60}m ${seconds % 60}s`
     );
+ }
+  if (text === prefix + "fakepope") {
+      cmd(`fakepope`);
+      sendMsg(`Dats It, Bēnned`)
  }
 });
