@@ -1,6 +1,7 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
 const version = "V1.1.8";
+const startTime = Date.now();
 let isPremium = false;
 socket.emit("login", {
         name: botname,
