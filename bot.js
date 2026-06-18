@@ -16,7 +16,7 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help1\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy\\n ${prefix}8ball\\n ${prefix}uptime`;
+`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy\\n ${prefix}8ball\\n ${prefix}uptime\\n ${prefix}fakepope`;
 
 const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
 
@@ -182,7 +182,7 @@ socket.on("talk", (message) => {
     const question = text.substring(prefix.length + 6).trim();
 
     if (!question) {
-        return sendMsg("Question Plz! Example: ,8ball Example");
+        return sendMsg("Question Plz!\\n Example: ,8ball Example");
     }
 
     const answers = [
@@ -193,7 +193,8 @@ socket.on("talk", (message) => {
         "The Bonzis Says Yes",
         "IDFK",
         "100% Confirmed",
-        "Probably Not"
+        "Probably Not",
+        "Never"
     ];
 
     const answer = answers[Math.floor(Math.random() * answers.length)];
