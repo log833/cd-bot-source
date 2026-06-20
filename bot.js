@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.2.0";
+const version = "V1.2.1";
 const startTime = Date.now();
 let isPremium = false;
 socket.emit("login", {
@@ -214,5 +214,8 @@ socket.on("talk", (message) => {
   if (text === prefix + "fakepope") {
       cmd(`fakepope`);
       sendMsg(`Dats It, Bēnned`)
+ }
+ if (text.startsWith(prefix + "bonzi")) {
+        sendMsg(`- **^^BonziINFO^^**\\n ID: ${botUser}\\n Color: ${usersPublic.get(botUser)?.color}\\n Pitch: ${usersPublic.get(botUser)?.pitch}\\n Speed:${usersPublic.get(botUser)?.speed}`);
  }
 });
