@@ -1,8 +1,7 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.2.1";
+const version = "V1.2.2";
 const startTime = Date.now();
-var botUser = null;
 let isPremium = false;
 socket.emit("login", {
         name: botname,
@@ -17,7 +16,7 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help1\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy\\n ${prefix}8ball\\n ${prefix}uptime\\n ${prefix}fakepope\\n ${prefix}bonzi`;
+`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy\\n ${prefix}8ball\\n ${prefix}uptime\\n ${prefix}fakepope\\n ${prefix}poll`;
 
 const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
 
@@ -57,6 +56,7 @@ socket.on("talk", (message) => {
     if (text === prefix + "triggered") return cmd(`triggered`);
     if (text === prefix + "fact") return cmd(`fact`);
     if (text === prefix + "france") return cmd(`france`);
+    if (text.startsWith(prefix + "poll")) return cmd(`poll ${text.substring(prefix.length + 5)}`);
     if (text.startsWith(prefix + "hat")) return cmd(`hat ${text.substring(prefix.length + 4)}`);
     if (text.startsWith(prefix + "color")) return cmd(`color ${text.substring(prefix.length + 6)}`);
     if (text.startsWith(prefix + "name")) return cmd(`name ${text.substring(prefix.length + 5)}`);
@@ -215,8 +215,5 @@ socket.on("talk", (message) => {
   if (text === prefix + "fakepope") {
       cmd(`fakepope`);
       sendMsg(`Dats It, Bēnned`)
- }
- if (text.startsWith(prefix + "bonzi")) {
-        sendMsg(`- **^^BonziINFO^^**\\n ID: ${botUser}\\n Color: ${usersPublic.get(botUser)?.color}\\n Pitch: ${usersPublic.get(botUser)?.pitch}\\n Speed:${usersPublic.get(botUser)?.speed}`);
  }
 });
