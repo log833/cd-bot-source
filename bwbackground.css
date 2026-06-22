@@ -1,0 +1,11 @@
+#content {
+    background-color: #bb0032;
+    background-image:
+        url("img/desktop/logo.png"),
+        url("https://files.catbox.moe/6re080.png");
+    background-position:
+        top right,
+        center;
+    background-repeat:
+        no-repeat;
+}
