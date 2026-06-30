@@ -1,6 +1,6 @@
 const prefix = ",";
 const botname = "Clanker Dask (" + prefix + "help)";
-const version = "V1.2.2";
+const version = "V1.2.3";
 const startTime = Date.now();
 let isPremium = false;
 socket.emit("login", {
@@ -16,7 +16,7 @@ const help1 = `- %%^^COMMANDS:^^%% \n` +
 `${prefix}help1\\n ${prefix}echo\\n ${prefix}joke\\n ${prefix}triggered\\n ${prefix}fact\\n ${prefix}hat\\n ${prefix}color\\n ${prefix}name\\n ${prefix}resethat\\n ${prefix}resetcolor\\n ${prefix}resetname\\n ${prefix}ship\\n ${prefix}roast\\n ${prefix}cow\\n ${prefix}llama\\n ${prefix}parrot\\n ${prefix}source\\n ${prefix}changelog\\n ${prefix}france\\n ${prefix}asshole\\n ${prefix}lumi\\n ${prefix}gokid`;
 
 const help2 = `- %%^^COMMANDS:^^%% \n` +
-`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}dvdbounce\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy\\n ${prefix}8ball\\n ${prefix}uptime\\n ${prefix}fakepope\\n ${prefix}poll`;
+`${prefix}help2\\n ${prefix}pp\\n ${prefix}aplle\\n ${prefix}stfu\\n ${prefix}fuk\\n ${prefix}version\\n ${prefix}coinflip\\n ${prefix}restore\\n ${prefix}repeat\\n ${prefix}apllefy\\n ${prefix}8ball\\n ${prefix}uptime\\n ${prefix}freepope\\n ${prefix}poll`;
 
 const changelog = `- https://log833.github.io/cd-bot-source/changelog.html`;
 
@@ -50,7 +50,6 @@ socket.on("talk", (message) => {
     if (text === prefix + "version") return sendMsg(version);
     if (text.startsWith(prefix + "echo")) return sendMsg(text.substring(prefix.length + 5));
     if (text.startsWith(prefix + "say")) return sendMsg(text.substring(prefix.length + 4));
-    if (text === prefix + "dvdbounce") return cmd(`dvdbounce`);
     if (text === prefix + "backflip") return cmd(`backflip`);
     if (text === prefix + "joke") return cmd(`joke`);
     if (text === prefix + "triggered") return cmd(`triggered`);
@@ -212,8 +211,8 @@ socket.on("talk", (message) => {
         `Clanker Dask Uptime:\n${hours}h ${minutes % 60}m ${seconds % 60}s`
     );
  }
-  if (text === prefix + "fakepope") {
-      cmd(`fakepope`);
+  if (text === prefix + "freepope") {
+      cmd(`freepope`);
       sendMsg(`Dats It, Bēnned`)
  }
 });
